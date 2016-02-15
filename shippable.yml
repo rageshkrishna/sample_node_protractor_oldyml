@@ -10,9 +10,9 @@ services:
   - selenium
 
 install:
-  - npm install -g istanbul
-  - npm install -g protractor
-  - npm install jasmine-reporters@1.0.0
+  - sudo npm install -g istanbul
+  - sudo npm install -g protractor
+  - sudo npm install jasmine-reporters@1.0.0
 
 before_script:
   - mkdir -p shippable/testresults
