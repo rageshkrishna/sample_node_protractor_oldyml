@@ -17,15 +17,12 @@ install:
 before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
-  - "export DISPLAY=:99.0"
-  - "/etc/init.d/xvfb start"
 
 script:
   - protractor --version
-  - protractor conf.js
+  - xvfb-run --server-args="-ac" protractor conf.js
 
 after_script:
-  - "/etc/init.d/xvfb stop"
   - istanbul cover conf.js -- -u tdd
   - istanbul report cobertura --dir  shippable/codecoverage/
 
